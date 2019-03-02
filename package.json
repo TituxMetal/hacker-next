@@ -1,0 +1,19 @@
+{
+  "name": "hacker-next",
+  "version": "1.0.0",
+  "description": "A Hacker news clone build with Next.js",
+  "main": "server.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build"
+  },
+  "repository": "https://github.com/TituxMetal/hacker-next",
+  "author": "TuxiMetal <tuximetal@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "next": "^8.0.3",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+  }
+}
