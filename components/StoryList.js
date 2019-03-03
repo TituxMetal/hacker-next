@@ -3,16 +3,7 @@ import Story from './Story'
 const StoryList = ({ stories }) => (
   <div className='story-list'>
     {stories.map(story => (
-      <Story
-        key={story.id}
-        id={story.id}
-        title={story.title}
-        url={story.url}
-        commentsCount={story.comments_count}
-        points={story.points}
-        timeAgo={story.time_ago}
-        user={story.user}
-      />
+      <Story key={story.id} story={story} />
     ))}
     <style jsx>{`
       .story-list {
