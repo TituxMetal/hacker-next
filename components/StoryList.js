@@ -4,6 +4,7 @@ const StoryList = ({ stories }) => (
   <div className='story-list'>
     {stories.map(story => (
       <Story
+        key={story.id}
         id={story.id}
         title={story.title}
         url={story.url}
