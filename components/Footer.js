@@ -1,8 +1,8 @@
-const Footer = ({ page }) => (
+const Footer = () => (
   <footer>
     <section>
       <p>Hacker Next is made with love by TuxiMetal!</p>
-      <a target='_blank' href='https://github.com' title='Fork Me'>
+      <a target='_blank' href='https://github.com/TituxMetal' title='Fork Me'>
         Fork Me
       </a>
       |
