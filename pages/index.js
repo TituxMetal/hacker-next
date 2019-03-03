@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Error from 'next/error'
 import fetch from 'isomorphic-unfetch'
 
@@ -6,22 +7,37 @@ import StoryList from '../components/StoryList'
 import Footer from '../components/Footer'
 import More from '../components/More'
 
-const Home = ({ stories, page }) => (
-  <Layout
-    title='Hacker Next'
-    description='A Hacker News clone made with Next.js'
-  >
-    {stories.length === 0 ? (
-      <Error statusCode={503} />
-    ) : (
-      <>
-        <StoryList stories={stories} />
-        <More page={page} />
-        <Footer />
-      </>
-    )}
-  </Layout>
-)
+const Home = ({ stories, page }) => {
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then(registration => {
+          console.log('service worker registration successful', registration)
+        })
+        .catch(err => {
+          console.warn('service worker registration failed', err.message)
+        })
+    }
+  })
+
+  return (
+    <Layout
+      title='Hacker Next'
+      description='A Hacker News clone made with Next.js'
+    >
+      {stories.length === 0 ? (
+        <Error statusCode={503} />
+      ) : (
+        <>
+          <StoryList stories={stories} />
+          <More page={page} />
+          <Footer />
+        </>
+      )}
+    </Layout>
+  )
+}
 
 Home.getInitialProps = async ({ req, res, query }) => {
   let stories
