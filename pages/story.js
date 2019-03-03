@@ -7,7 +7,7 @@ import Story from '../components/Story'
 import CommentList from '../components/CommentList'
 
 const StoryPage = ({ story }) => (
-  <Layout title={story && story.title}>
+  <Layout title={story && story.title} backButton>
     {!story ? (
       <Error statusCode={503} />
     ) : (
