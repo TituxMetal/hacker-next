@@ -4,6 +4,7 @@ import fetch from 'isomorphic-unfetch'
 import Layout from '../components/Layout'
 import StoryList from '../components/StoryList'
 import Footer from '../components/Footer'
+import More from '../components/More'
 
 const Home = ({ stories, page }) => (
   <Layout
@@ -15,6 +16,7 @@ const Home = ({ stories, page }) => (
     ) : (
       <>
         <StoryList stories={stories} />
+        <More page={page} />
         <Footer page={page} />
       </>
     )}
