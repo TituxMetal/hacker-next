@@ -4,9 +4,10 @@
   "description": "A Hacker news clone build with Next.js",
   "main": "server.js",
   "scripts": {
-    "dev": "node server.js",
-    "start": "NODE_ENV=production node server.js",
-    "build": "next build"
+    "dev": "nodemon server.js",
+    "start": "NODE_ENV=production next start",
+    "build": "next build",
+    "deploy": "now --public"
   },
   "repository": "https://github.com/TituxMetal/hacker-next",
   "author": "TuxiMetal <tuximetal@gmail.com>",
@@ -18,5 +19,8 @@
     "react": "^16.8.3",
     "react-dom": "^16.8.3",
     "sw-precache-webpack-plugin": "^0.11.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }
