@@ -3,8 +3,9 @@ import fetch from 'isomorphic-unfetch'
 
 import Layout from '../components/Layout'
 import StoryList from '../components/StoryList'
+import Footer from '../components/Footer'
 
-const Home = ({ stories }) => (
+const Home = ({ stories, page }) => (
   <Layout
     title='Hacker Next'
     description='A Hacker News clone made with Next.js'
@@ -12,24 +13,29 @@ const Home = ({ stories }) => (
     {stories.length === 0 ? (
       <Error statusCode={503} />
     ) : (
-      <div>
+      <>
         <StoryList stories={stories} />
-      </div>
+        <Footer page={page} />
+      </>
     )}
   </Layout>
 )
 
-Home.getInitialProps = async () => {
+Home.getInitialProps = async ({ req, res, query }) => {
   let stories
+  let page
   try {
-    const res = await fetch(`https://node-hnapi.herokuapp.com/news?page=1`)
+    page = Number(query.page) || 1
+    const res = await fetch(
+      `https://node-hnapi.herokuapp.com/news?page=${page}`
+    )
     stories = await res.json()
   } catch (err) {
     console.error('Home getInitialProps', err)
     stories = []
   }
 
-  return { stories }
+  return { stories, page }
 }
 
 export default Home
