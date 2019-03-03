@@ -47,6 +47,9 @@ const Layout = ({ children, title, description }) => (
         margin: 0;
         padding: 0;
       }
+      a {
+        color: #f60;
+      }
     `}</style>
   </main>
 )
