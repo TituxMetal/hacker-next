@@ -17,7 +17,7 @@ const Home = ({ stories, page }) => (
       <>
         <StoryList stories={stories} />
         <More page={page} />
-        <Footer page={page} />
+        <Footer />
       </>
     )}
   </Layout>
